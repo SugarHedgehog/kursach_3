@@ -1,0 +1,99 @@
+\documentclass[a4paper, 14pt]{extarticle}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}[Ligatures=TeX]
+\setmonofont{CMU Typewriter Text}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+%%% Дополнительная работа с математикой
+\usepackage{amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{amsmath}
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+  {\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{ {grafs/} }
+\setlength\fboxsep{3pt} % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig} % Обтекание рисунков и таблиц текстом
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={let, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  language=JavaScript,
+  extendedchars=true,
+  basicstyle=\footnotesize\ttfamily,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  showspaces=false,
+  numbers=left,
+  numberstyle=\footnotesize,
+  numbersep=9pt,
+  tabsize=2,
+  keepspaces=true,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b
+  escapechar =| ,
+  frame=single ,
+  commentstyle=\itshape ,
+  stringstyle =\bfseries
+}
+
+\newcommand*{\function}[2]{\texttt{\textcolor{Red}{function} \textcolor{Purple}{#1}(#2)}}
+
+\newcommand*{\prototype}[3]{\texttt{\textcolor{Orange}{#1}.\textcolor{Blue}{prototype}.\textcolor{Purple}{#2} = \textcolor{Red}{function}(#3)}}
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\begin{document}
+
+\include{title.tex}
+
+\tableofcontents
+
+\include{intro.tex}
+
+\include{part_1.tex}
+
+\include{part_2.tex}
+
+\include{conclus.tex}
+
+\include{bibliography.tex}
+\end{document}
